@@ -48,6 +48,5 @@ if __name__ == "__main__":
     completed_tasks = count_done_tasks(todos_data, input_id)
     total_tasks = count_total_tasks(todos_data, input_id)
 
-    print(f"Employee {name} is done with tasks
-          ({completed_tasks} / {total_tasks}).")
+    print(f"Employee {name} is done with tasks({completed_tasks}/{total_tasks}).")
     completed_task_title(todos_data, input_id)
