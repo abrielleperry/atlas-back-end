@@ -22,7 +22,8 @@ def employee_name(users_data, employee_id):
 def count_done_tasks(todos_data, employee_id):
     """ get count of completed tasks for input employee id """
     number_of_done_tasks = sum(
-        1 for todo in todos_data if todo['userId'] == employee_id and todo['completed'])
+        1 for todo in todos_data
+        if todo['userId'] == employee_id and todo['completed'])
     return number_of_done_tasks
 
 
