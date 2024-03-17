@@ -1,15 +1,18 @@
 #!/usr/bin/python3
+""" user inputs employee id and task data is returned """
 import requests
 import sys
 
 
 def employee_data():
+    """ get user and todo data from API """
     users_data = requests.get("https://jsonplaceholder.typicode.com/users")
     todos_data = requests.get("https://jsonplaceholder.typicode.com/todos")
     return users_data.json(), todos_data.json()
 
 
 def employee_name(users_data, employee_id):
+    """ get employee name """
     for user in users_data:
         if user['id'] == employee_id:
             return user['name']
@@ -17,18 +20,21 @@ def employee_name(users_data, employee_id):
 
 
 def count_done_tasks(todos_data, employee_id):
+    """ get count of completed tasks for input employee id """
     number_of_done_tasks = sum(
         1 for todo in todos_data if todo['userId'] == employee_id and todo['completed'])
     return number_of_done_tasks
 
 
 def count_total_tasks(todos_data, employee_id):
+    """ get count of total tasks for input employee id """
     total_number_of_tasks = sum(1 for todo in todos_data
                                 if todo['userId'] == employee_id)
     return total_number_of_tasks
 
 
 def completed_task_title(todos_data, employee_id):
+    """ if task is completed print task title """
     for tasks in todos_data:
         if tasks['userId'] == employee_id and tasks['completed']:
             print(f"\t{tasks['title']}")
