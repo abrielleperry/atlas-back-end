@@ -13,6 +13,12 @@ def employee_name(employee_user, input_id):
         if user['id'] == input_id:
             return user['name']
     return None
+
+def todo_progress(employee_todo, input_id):
     
-    
- #   Employee EMPLOYEE_NAME is done with tasks(NUMBER_OF_DONE_TASKS/TOTAL_NUMBER_OF_TASKS):
+
+
+if __name__ == "__main__":
+    employee_name, employee_todo = employee_data()
+input_id = int(sys.argv[1])
+name = 
