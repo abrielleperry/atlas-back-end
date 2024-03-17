@@ -27,11 +27,17 @@ def count_total_tasks(todos_data, employee_id):
                                 if todo['userId'] == employee_id)
     return total_number_of_tasks
 
-def todo_list()
+def completed_task_title(todos_data, employee_id):
+    for tasks in todos_data:
+        if tasks['userId'] == employee_id and tasks['completed']:
+            print(f"\t{tasks['title']}")
+    
 if __name__ == "__main__":
     users_data, todos_data = employee_data()
-input_id = int(sys.argv[1])
-name =
+    input_id = int(sys.argv[1])
+    name = employee_name(users_data, input_id)
+    completed_tasks = count_done_tasks(todos_data, input_id)
+    total_tasks = count_total_tasks(todos_data, input_id)
 
 if name:
     print(f"Employee {name} is done with tasks({/}).")
