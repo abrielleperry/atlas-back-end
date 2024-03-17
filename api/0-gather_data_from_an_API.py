@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-from flask import request
+import requests
 import sys
 
 
 def employee_data():
-    users_data = request.get("https://jsonplaceholder.typicode.com/users")
-    todos_data = request.get("https://jsonplaceholder.typicode.com/todos")
+    users_data = requests.get("https://jsonplaceholder.typicode.com/users")
+    todos_data = requests.get("https://jsonplaceholder.typicode.com/todos")
     return users_data.json(), todos_data.json()
 
 
@@ -27,11 +27,13 @@ def count_total_tasks(todos_data, employee_id):
                                 if todo['userId'] == employee_id)
     return total_number_of_tasks
 
+
 def completed_task_title(todos_data, employee_id):
     for tasks in todos_data:
         if tasks['userId'] == employee_id and tasks['completed']:
             print(f"\t{tasks['title']}")
-    
+
+
 if __name__ == "__main__":
     users_data, todos_data = employee_data()
     input_id = int(sys.argv[1])
@@ -39,8 +41,6 @@ if __name__ == "__main__":
     completed_tasks = count_done_tasks(todos_data, input_id)
     total_tasks = count_total_tasks(todos_data, input_id)
 
-if name:
-    print(f"Employee {name} is done with tasks({/}).")
-else:
-
-    Employee {EMPLOYEE_NAME} is done with tasks({NUMBER_OF_DONE_TASKS} / {TOTAL_NUMBER_OF_TASKS}):
+    print(
+        f"Employee {name} is done with tasks({completed_tasks}/{total_tasks}).")
+    completed_task_title(todos_data, input_id)
