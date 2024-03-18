@@ -32,4 +32,4 @@ if __name__ == "__main__":
                     "completed": data['completed'], 
                     "username": username
                 })    
-    json.dump(info, jsonfile) 
+        json.dump(info, jsonfile) 
