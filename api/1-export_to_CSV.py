@@ -11,6 +11,7 @@ def fetch_employee_data():
     todos_data = requests.get("https://jsonplaceholder.typicode.com/todos")
     return users_data.json(), todos_data.json()
 
+
 if __name__ == "__main__":
     users_data, todos_data = fetch_employee_data()
     input_id = int(sys.argv[1])
