@@ -49,5 +49,4 @@ if __name__ == "__main__":
     total_tasks = count_total_tasks(todos_data, input_id)
 
     print(f"Employee {name} is done with tasks({comp_tasks}/{total_tasks}):")
-    second = completed_task_title(todos_data, input_id)
-    print(f"\t {second}")
+    print(f"\t{completed_task_title(todos_data, input_id)}").format()
