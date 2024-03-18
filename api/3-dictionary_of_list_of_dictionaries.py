@@ -15,21 +15,21 @@ def fetch_employee_data():
 
 if __name__ == "__main__":
     users_data, todos_data = fetch_employee_data()
-    input_id = int(sys.argv[1])
 
     """ get user name from users_data """
+    userid = {}
     for user in users_data:
-        if user['id'] == input_id:
-            username = user['username']
+        input_id = user['id']
+        username = user['username']
+        
     info = {}
-    info[input_id] = []
-
-    with open(f'{input_id}.json', 'w', newline="") as jsonfile:
+    with open(f'todo_all_employees.json', 'w', newline="") as jsonfile:
         for data in todos_data:
             if data['userId'] == input_id:
+                if input_id not in info:
+                    info[input_id] = []
                 info[input_id].append({
-                    "username": username
                     "task": data['title'],
-                    "completed": data['completed'],
+                    "completed": data['completed']
                 })
         json.dump(info, jsonfile)
