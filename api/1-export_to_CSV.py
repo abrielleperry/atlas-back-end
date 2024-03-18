@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ user inputs employee id and task data is returned """
+import csv
 import requests
 import sys
-import csv
 
 
 def fetch_employee_data():
