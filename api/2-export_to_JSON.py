@@ -29,9 +29,8 @@ if __name__ == "__main__":
             if data['userId'] == input_id:
                 info[input_id].append({
                     "task": data['title'],
-                    "completed": data['completed'], 
+                    "completed": data['completed'],
                     "username": username
                 })
 
-                    
-                json.dump(['input_id', ":", 
+                json.dump(['input_id', ":",
