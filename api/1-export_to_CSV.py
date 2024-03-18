@@ -2,14 +2,13 @@
 """ user inputs employee id and task data is returned """
 import requests
 import sys
+import csv
 
-
-def employee_data():
+def fetch_employee_data():
     """ get user and todo data from API """
     users_data = requests.get("https://jsonplaceholder.typicode.com/users")
     todos_data = requests.get("https://jsonplaceholder.typicode.com/todos")
     return users_data.json(), todos_data.json()
-
 
 def employee_name(users_data, employee_id):
     """ get employee name """
@@ -38,7 +37,7 @@ def completed_task_title(todos_data, employee_id):
     """ if task is completed print task title """
     for tasks in todos_data:
         if tasks['userId'] == employee_id and tasks['completed']:
-            print(f"\t{tasks['title']}")
+            print(f"\t {tasks['title']}")
 
 
 if __name__ == "__main__":

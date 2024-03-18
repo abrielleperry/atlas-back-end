@@ -38,7 +38,7 @@ def completed_task_title(todos_data, employee_id):
     """ if task is completed print task title """
     for tasks in todos_data:
         if tasks['userId'] == employee_id and tasks['completed']:
-            print(f"\t{tasks['title']}")
+            print(f"\t {tasks['title']}")
 
 
 if __name__ == "__main__":
