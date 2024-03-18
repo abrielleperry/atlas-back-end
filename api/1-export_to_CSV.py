@@ -18,5 +18,5 @@ for user in users_data:
     if user['id'] == input_id:
         username = user['username']
 
-with open({input_id}, 'w', newline="") as csvfile:
-    
+with open('{input_id}.csv', 'w', newline="") as csvfile:
+    employee_csv = csv.writer(csvfile)
