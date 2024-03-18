@@ -48,6 +48,6 @@ if __name__ == "__main__":
     comp_tasks = count_done_tasks(todos_data, input_id)
     total_tasks = count_total_tasks(todos_data, input_id)
 
-    print(f"Employee {name} is done with tasks({comp_tasks}/{total_tasks}).".format(name, comp_tasks, total_tasks))
+    print("Employee {} is done with tasks({}/{}):".format(name, comp_tasks, total_tasks))
     second = completed_task_title(todos_data, input_id)
-    print("\t {}".format(second))
+    print(f"\t {second}")
