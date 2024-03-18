@@ -20,3 +20,7 @@ for user in users_data:
 
 with open('{input_id}.csv', 'w', newline="") as csvfile:
     employee_csv = csv.writer(csvfile)
+    for data in todos_data:
+        if data['userId'] == input_id:
+            employee_csv.writerow(
+                [input_id, username, data['completed'], data['title']])
