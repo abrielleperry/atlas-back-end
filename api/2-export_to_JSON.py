@@ -22,14 +22,14 @@ if __name__ == "__main__":
         if user['id'] == input_id:
             username = user['username']
     info = {}
-    info[input_id]= []
+    info[input_id] = []
 
     with open(f'{input_id}.json', 'w', newline="") as jsonfile:
         for data in todos_data:
             if data['userId'] == input_id:
                 info[input_id].append({
                     "task": data['title'],
-                    "completed": data['completed'], 
+                    "completed": data['completed'],
                     "username": username
-                })    
-        json.dump(info, jsonfile) 
+                })
+        json.dump(info, jsonfile)
