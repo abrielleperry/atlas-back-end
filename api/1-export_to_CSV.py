@@ -4,11 +4,13 @@ import requests
 import sys
 import csv
 
+
 def fetch_employee_data():
     """ get user and todo data from API """
     users_data = requests.get("https://jsonplaceholder.typicode.com/users")
     todos_data = requests.get("https://jsonplaceholder.typicode.com/todos")
     return users_data.json(), todos_data.json()
+
 
 users_data, todos_data = fetch_employee_data()
 input_id = int(sys.argv[1])
@@ -18,7 +20,7 @@ for user in users_data:
     if user['id'] == input_id:
         username = user['username']
 
-with open('{input_id}.csv', 'w', newline="") as csvfile:
+with open(f'{input_id}.csv', 'w', newline="") as csvfile:
     employee_csv = csv.writer(csvfile)
     for data in todos_data:
         if data['userId'] == input_id:
