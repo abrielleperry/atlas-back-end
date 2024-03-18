@@ -21,7 +21,7 @@ for user in users_data:
         username = user['username']
 
 with open(f'{input_id}.csv', 'w', newline="") as csvfile:
-    employee_csv = csv.writer(csvfile)
+    employee_csv = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
     for data in todos_data:
         if data['userId'] == input_id:
             employee_csv.writerow(
