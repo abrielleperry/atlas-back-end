@@ -22,9 +22,8 @@ if __name__ == "__main__":
         if user['id'] == input_id:
             username = user['username']
 
-    with open(f'{input_id}.csv', 'w', newline="") as csvfile:
-        employee_csv = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+    with open(f'{input_id}.json', 'w', newline="") as jsonfile:
+        employee_csv = csv.writer(jsonfile, quoting=csv.QUOTE_ALL)
         for data in todos_data:
             if data['userId'] == input_id:
-                employee_csv.writerow(
-                    [input_id, username, data['completed'], data['title']])
+                json.dump([input_id,":", data['title'],"completed:", data['completed'], "username:", username])
