@@ -21,10 +21,17 @@ if __name__ == "__main__":
     for user in users_data:
         if user['id'] == input_id:
             username = user['username']
+    info = {}
 
     with open(f'{input_id}.json', 'w', newline="") as jsonfile:
         employee_csv = csv.writer(jsonfile, quoting=csv.QUOTE_ALL)
         for data in todos_data:
             if data['userId'] == input_id:
-                json.dump([input_id, ":", data['title'], "completed:",
-                           data['completed'], "username:", username])
+                info[input_id].append({
+                    "task": data['title'],
+                    "completed": data['completed'], 
+                    "username": username
+                })
+
+                    
+                json.dump(['input_id', ":", 
