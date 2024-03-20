@@ -4,7 +4,7 @@ import requests
 import sys
 
 
-def employee_data():
+def fetch_employee_data():
     """ get user and todo data from API """
     users_data = requests.get("https://jsonplaceholder.typicode.com/users")
     todos_data = requests.get("https://jsonplaceholder.typicode.com/todos")
