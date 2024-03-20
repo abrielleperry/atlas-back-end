@@ -22,10 +22,9 @@ if __name__ == "__main__":
 
         for data in todos_data:
             if data['userId'] in info:
-                info[data['userId']].append({
+                info[data['userId']]['todos'].append({
                     "task": data['title'],
                     "completed": data['completed']
                 })
-
 
         json.dump(info, jsonfile)
