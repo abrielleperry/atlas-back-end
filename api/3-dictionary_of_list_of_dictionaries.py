@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 """ user inputs employee id and task data is returned """
-import csv
 import json
 import requests
-import sys
 
 
 def fetch_employee_data():
@@ -33,7 +31,5 @@ if __name__ == "__main__":
 
         for user in users_data:
             input_id = user['id']
-            if input_id not in info:
-                info[input_id] = []
 
         json.dump(info, jsonfile)
