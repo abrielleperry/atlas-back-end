@@ -15,10 +15,10 @@ if __name__ == "__main__":
     users_data, todos_data = fetch_employee_data()
 
     info = {}
+    usernames = {user['id']: user['username'] for user in users_data}
     with open(f'todo_all_employees.json', 'w', newline="") as jsonfile:
-        for user in users_data:
-            input_id = user['id']
-            info[input_id] = {'username': user['username'], 'todos': []}
+        for user_id, username in usernames.items():
+            info[user_id] = {'username': username, 'todos': []}
 
         for data in todos_data:
             if data['userId'] in info:
