@@ -23,12 +23,9 @@ if __name__ == "__main__":
         for data in todos_data:
             if data['userId'] in info:
                 info[data['userId']].append({
-                    "username": username,
                     "task": data['title'],
                     "completed": data['completed']
                 })
 
-        for user in users_data:
-            input_id = user['id']
 
         json.dump(info, jsonfile)
