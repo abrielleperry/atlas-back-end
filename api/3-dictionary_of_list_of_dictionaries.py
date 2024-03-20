@@ -19,14 +19,15 @@ if __name__ == "__main__":
     usernames = {user['id']: user['username'] for user in users_data}
     with open(f'todo_all_employees.json', 'w', newline="") as jsonfile:
         for user_id, username in usernames.items():
-            info[user_id] = {'username': username, 'todos': []}
+            info[user_id] = []
 
 # maps todo item to user id in info dictionary
         for data in todos_data:
             if data['userId'] in info:
-                info[data['userId']]['todos'].append({
-                    "task": data['title'],
-                    "completed": data['completed']
+                info[data['userId']].append({
+                    'username': usernames[data['userId']],
+                    'task':data['title'],
+                    'completed':data['completed']
                 })
 
         json.dump(info, jsonfile)
