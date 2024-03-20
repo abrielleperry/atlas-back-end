@@ -18,8 +18,7 @@ if __name__ == "__main__":
     with open(f'todo_all_employees.json', 'w', newline="") as jsonfile:
         for user in users_data:
             input_id = user['id']
-            username = user['username']
-            info[input_id] = []
+            info[input_id] = {'username': user['username'], 'todos': []}
 
         for data in todos_data:
             if data['userId'] in info:
